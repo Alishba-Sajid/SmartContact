@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #faf6f8;
+  color: #1f2937;
+}
+
+.navbar {
+  background-color: #36021f;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar .logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #f0ec17;
+}
+
+.container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #36021f;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+form input {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #f9fafb;
+  transition: 0.2s ease;
+}
+
+form input:focus {
+  border-color: #3d0216;
+  outline: none;
+  box-shadow: 0 0 5px rgba(165, 17, 103, 0.3);
+}
+
+form button {
+  padding: 12px;
+  background: #3d0216;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 22px;
+}
+
+form button:hover {
+  background: #240111;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #01742b;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 3px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.table-wrapper {
+  margin-top: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+}
+
+tr {
+  animation: slideIn 0.3s ease-in;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+tr:hover {
+  background-color: #f9fafb;
+}
+
+.highlight {
+  background-color: #e0f2fe !important;
+}
+
+.update-btn {
+  background: #c9ac0c;
+  color: white;
+  border: none;
+  padding: 6px 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.3s ease;
+}
+
+.update-btn:hover {
+  background: #998308;
+}
+
+#exportBtn {
+  background-color: #0b4b22; 
+  color: white;
+  font-weight: 300;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+#exportBtn:hover {
+  background-color: #073317;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+#closeModalBtn {
+  margin-top: 1rem;
+  background-color: #36021f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Responsive Table Only */
+@media(max-width: 600px) {
+  .container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    background: #f9f9f9;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    padding: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+
+  .navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.75rem;
+}
+  
+}
